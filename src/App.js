@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import WelcomeMessage from './components/ui/WelcomeMessage';
+
 
 function App() {
+
+  // state para ocultar el mensaje de bienvenida
+  const [showMessage, setShowMessage] = useState(true);
+
   return (
-    <div className="App">
-      <h1>Hola mundo</h1>
-    </div>
+    <>
+      { showMessage ? 
+        <WelcomeMessage 
+          setShowMessage = { setShowMessage }
+        />
+        :
+        null
+      }
+      
+    </>
   );
 }
 

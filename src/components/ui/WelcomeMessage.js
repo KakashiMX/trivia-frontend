@@ -1,8 +1,16 @@
 import React from 'react'
 
-const  WelcomeMessage= () => {
+const  WelcomeMessage= ({ setShowMessage }) => {
+
+    // función para ocultar el mensaje de bienvenida
+    const handleMessage = () => {
+        setShowMessage(false);
+    }
+
     return (
-        <div className='message__container'>
+        <div 
+            className='message__container'
+        >
             <div className='message'>
                 <div 
                     className='message__header'
@@ -15,7 +23,10 @@ const  WelcomeMessage= () => {
                     <p>Hay varias categorias para seleccionar, como por ejemplo: Cine, Videojuegos, Freestyle</p>
                     <p>Cada categoria cuenta actualmente con 50 preguntas</p>
 
-                    <button className='button message__button'>Iniciar Trivia</button>
+                    <button 
+                        className='button message__button'
+                        onClick={ handleMessage }
+                    >Iniciar Trivia</button>
 
                 </div>
 
