@@ -1,10 +1,11 @@
 import React from 'react'
 
-const  WelcomeMessage= ({ setShowMessage }) => {
+const  WelcomeMessage= ({ setShowMessage, setQuestions }) => {
 
     // función para ocultar el mensaje de bienvenida
     const handleMessage = () => {
         setShowMessage(false);
+        setQuestions( true );
     }
 
     return (
