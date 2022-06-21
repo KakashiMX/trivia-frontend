@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 // context
 import { AppContext } from '../../context/AppContext';
@@ -9,14 +9,12 @@ import Form from '../form/Form';
 
 const Principal = () => {
     // state para ocultar el mensaje de bienvenida
-  const {showMessage, setShowMessage, questions, setQuestions} = useContext( AppContext );
+  const {showMessage, questions} = useContext( AppContext );
 
     return (
         <>
             { showMessage ? 
                 <WelcomeMessage
-                setShowMessage = { setShowMessage }
-                setQuestions= { setQuestions }
                 />
                 :
                 null

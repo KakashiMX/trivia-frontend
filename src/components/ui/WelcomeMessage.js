@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-const  WelcomeMessage= ({ setShowMessage, setQuestions }) => {
+// context
+import { AppContext } from '../../context/AppContext';
+
+const  WelcomeMessage= () => {
+
+    // accediendo al context
+    const { setShowMessage, setQuestions } = useContext( AppContext );
 
     // función para ocultar el mensaje de bienvenida
     const handleMessage = () => {
