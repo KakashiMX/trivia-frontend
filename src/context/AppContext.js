@@ -9,11 +9,12 @@ export const AppContext = createContext();
 
 const AppProvider = props => {
 
-    // state para ocultar el mensaje de bienvenida
-  const [showMessage, setShowMessage] = useState(true);
-
-  // state para mostrar u ocultar formulario de preguntas
-  const [questions, setQuestions] = useState(false);
+  // state para ocultar o mostrar las ventanas emergente
+  const [showComponent, setShowComponent] = useState({
+    showwelcomemessage: true,
+    showform: false,
+    showloadinmessage: false
+  });
 
   // state para categorias
   const [categories, setCategories] = useState(null);
@@ -60,10 +61,8 @@ const AppProvider = props => {
     return (
         <AppContext.Provider
             value={{
-                showMessage,
-                setShowMessage,
-                questions,
-                setQuestions,
+                showComponent, 
+                setShowComponent,
                 categories,
                 formValues, 
                 setFormValues,
