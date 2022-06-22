@@ -3,10 +3,9 @@
 }
 
 :root{
-  --light-acent: #8996B2;
-  --light-shade: #F0F0EF;
-  --dark-acent: #627BB1;
-  --dark-shade: #1E2229;
+  --light-color: #F0F0EF;
+  --light-acent: #1894ce;
+  --dark-color: #1E2229;
 }
 
 body {
@@ -38,9 +37,9 @@ code {
 }
 
 .button:hover{
-  border: 1px solid var(--dark-acent);
-  background-color: var(--light-shade);
-  color: var(--dark-shade);
+  border: 1px solid var(--dark-color);
+  background-color: var(--light-color);
+  color: var(--dark-color);
 }
 
 
@@ -66,13 +65,13 @@ code {
   margin-left: auto;
   margin-right: auto;
   flex-direction: column;
-  background-color: var(--light-shade);
+  background-color: var(--light-color);
   border-radius: 5px;
 }
 
 .message__header{
-  background-color: var(--dark-shade);
-  color: var(--light-shade);
+  background-color: var(--dark-color);
+  color: var(--light-color);
   font-weight: bold;
   padding: 1rem;
   text-align: center;
@@ -88,8 +87,8 @@ code {
 }
 
 .message__button{
-  background-color: var(--dark-acent);
-  color: var(--light-shade);
+  background-color: var(--dark-color);
+  color: var(--light-color);
   text-transform: uppercase;
 }
 
@@ -112,7 +111,7 @@ code {
 .form{
   width: 350px;
   height: 250px;
-  background-color: var(--light-shade);
+  background-color: var(--light-color);
   border-radius: 5px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
@@ -120,8 +119,8 @@ code {
 }
 
 .form__title{
-  background-color: var(--dark-shade);
-  color: var(--light-shade);
+  background-color: var(--dark-color);
+  color: var(--light-color);
   padding: 1rem;
   text-align: center;
   width: 350px;
@@ -142,13 +141,14 @@ code {
 .form__input{
   outline: none;
   padding: 0.3rem;
-  border: 1px solid var(--light-acent);
-  background-color: var(--light-shade);
+  border: 1px solid var(--dark-color);
+  border-radius: 3px;
+  background-color: var(--light-color);
 }
 
 .form__submit{
   margin-top: 20px;
-  background-color: var(--dark-acent);
-  color: var(--light-shade);
+  background-color: var(--dark-color);
+  color: var(--light-color);
   text-transform: uppercase;
 }
