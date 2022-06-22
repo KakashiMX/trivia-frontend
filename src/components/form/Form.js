@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../../context/AppContext';
 
 const Form = () => {
+
+    // accediendo al context
+    const { categories } = useContext( AppContext );
+    
+    console.log( categories )
     return (
         <div className='form__container'>
                 <div 
@@ -10,10 +16,16 @@ const Form = () => {
                 <div className="form__group">
                     <label htmlFor="" className="form__label">Selecciona una categoria:</label>
                     <select className='form__input'>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
+                        { categories !== null  ?
+                            categories.map( category =>
+                                <option 
+                                    value={category.name}
+                                    key={ category.name }
+                                >{ category.name}
+                                </option>
+                            )
+                         : null
+                        }
                     </select>
                 </div>
 

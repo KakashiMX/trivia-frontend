@@ -1,7 +1,7 @@
-import React, { createContext, useState} from 'react';
+import React, { createContext, useEffect, useState} from 'react';
 
-// axios
-import clientAxios from '../axios/axios';
+// helpers
+import { getCategories } from '../helper/getCategories';
 
 // creación del context
 export const AppContext = createContext();
@@ -14,14 +14,28 @@ const AppProvider = props => {
   // state para mostrar u ocultar formulario de preguntas
   const [questions, setQuestions] = useState(false);
 
+  // state para categorias
+  const [categories, setCategories] = useState(null);
+
+  useEffect( () => {
+
+    const getCategoriesData = async () => {
+        const data = await getCategories();
+        setCategories( data );
+    }
+
+    getCategoriesData();
+  }, []);
+
     // valores para acceder por useContext
     return (
         <AppContext.Provider
             value={{
-                showMessage: showMessage,
-                setShowMessage: setShowMessage,
-                questions: questions,
-                setQuestions
+                showMessage,
+                setShowMessage,
+                questions,
+                setQuestions,
+                categories
             }}
         >
             { props.children }
