@@ -4,7 +4,7 @@ import { AppContext } from '../../context/AppContext';
 const Form = () => {
 
     // accediendo al context
-    const { categories, setLoading, formValues, setFormValues } = useContext( AppContext );
+    const { categories, setLoading, formValues, setFormValues, showComponent, setShowComponent } = useContext( AppContext );
 
     const { category, total } = formValues;
 
@@ -20,6 +20,11 @@ const Form = () => {
     const handleInit = e => {
         e.preventDefault();
         setLoading( true );
+        setShowComponent({
+            ...showComponent,
+            showform: false,
+            showloading: true
+        });
     }
 
     return (
@@ -61,7 +66,6 @@ const Form = () => {
                         value={ total }
                         onChange={ handleInputChange }
                     />
-                    <small className='form__legend'>Recuerda que el máximo de preguntas es 50</small>
                 </div>
 
                 <input 
