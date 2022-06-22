@@ -257,16 +257,11 @@ code {
   font-size: 18px;
   font-weight: bold;
   padding: 1rem;
-  transition: border 0.5s ease;
-}
-
-.question__option:hover{
-  /* transform: scale(1.05); */
-  border: 2px solid var(--dark-color);
+  transition: transform 0.5s ease;
 }
 
 .question__correct{
-border:1px solid green;
+  border:2px solid green;
 }
 
 .question__incorrect{
