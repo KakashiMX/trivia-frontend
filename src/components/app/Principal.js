@@ -7,6 +7,7 @@ import { AppContext } from '../../context/AppContext';
 import WelcomeMessage from '../../components/ui/WelcomeMessage';
 import Form from '../form/Form';
 import Loading from '../ui/Loading';
+import Questions from '../questions/Questions';
 
 const Principal = () => {
     // state para ocultar el mensaje de bienvenida
@@ -28,6 +29,7 @@ const Principal = () => {
             { loading ? 
                 <Loading /> : null
             }
+            { !showwelcomemessage && !showform && !loading ? <Questions /> : null }
         </>
     );
 }
