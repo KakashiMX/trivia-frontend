@@ -4,7 +4,8 @@ export const getCategories = async () => {
     try {
         
         const res = await clientAxios.get('/api/trivia/categorias/lista-categorias');
-        return res
+        if( res.data.ok ) return res.data.categorias;
+        
     } catch (error) {
         console.log( error );
 
