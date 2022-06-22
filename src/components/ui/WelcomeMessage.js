@@ -6,12 +6,15 @@ import { AppContext } from '../../context/AppContext';
 const  WelcomeMessage= () => {
 
     // accediendo al context
-    const { setShowMessage, setQuestions } = useContext( AppContext );
+    const { showComponent, setShowComponent } = useContext( AppContext );
 
     // función para ocultar el mensaje de bienvenida
     const handleMessage = () => {
-        setShowMessage(false);
-        setQuestions( true );
+        setShowComponent({
+            ...showComponent,
+            showwelcomemessage: false,
+            showform: true
+        });
     }
 
     return (
@@ -33,7 +36,7 @@ const  WelcomeMessage= () => {
                     <button 
                         className='button message__button'
                         onClick={ handleMessage }
-                    >Iniciar Trivia</button>
+                    >Siguiente</button>
 
                 </div>
 
