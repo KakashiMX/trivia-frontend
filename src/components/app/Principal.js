@@ -6,21 +6,27 @@ import { AppContext } from '../../context/AppContext';
 // componentes
 import WelcomeMessage from '../../components/ui/WelcomeMessage';
 import Form from '../form/Form';
+import Loading from '../ui/Loading';
 
 const Principal = () => {
     // state para ocultar el mensaje de bienvenida
-  const {showMessage, questions} = useContext( AppContext );
+  const { showComponent, loading,  } = useContext( AppContext );
+  const { showwelcomemessage, showform } = showComponent
 
     return (
         <>
-            { showMessage ? 
+            { showwelcomemessage ? 
                 <WelcomeMessage
                 />
                 :
                 null
             }
-            { questions ?
+            { showform ?
                 <Form /> : null
+            }
+
+            { loading ? 
+                <Loading /> : null
             }
         </>
     );
