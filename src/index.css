@@ -28,7 +28,7 @@ code {
 }
 
 /* ******************************** */
-/* *** Estilos generales para botones */
+/* *** Estilos generales *** */
 .button{
   display: block;
   padding: 0.6rem;
@@ -95,23 +95,11 @@ code {
 .message__body{
   color: var(--bg-color);
   font-size: 16px;
+  padding: 1rem;
 }
 
 /* ******************************* */
 /* *** EStilos del componente Form.js */
-
-.form__container{
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  max-width: 100vw;
-  max-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: var(--bg-color);
-}
 
 .form{
   height: auto;
@@ -120,9 +108,6 @@ code {
   padding: 2rem;
 }
 
-.form__title{
-  width: 350px;
-}
 .form__group{
   display: flex;
   flex-direction: column;
@@ -216,8 +201,10 @@ code {
 }
 
 .question__header--title{
+  display: flex;
+  justify-content: space-around;
   background-color: var(--light-color);
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   font-size: 16px;
 }
@@ -308,4 +295,84 @@ code {
 
 .table__row .row__body:last-child{
   color: var(--error-color);
+}
+
+
+/* ******************************* */
+/* *** EStilos para desktop y tablets */
+
+@media (min-width: 748px) {
+  
+  /* ******************************** */
+  /* *** Estilos generales *** */
+  .button{
+    width: 160px;
+  }
+
+  .content,
+  .content__header{
+    width: 500px;
+  }
+
+  /* ******************************* */
+  /* *** EStilos del componente WelcomeMessage.js */
+  /* ******************************* */
+  /* *** EStilos del componente Form.js */
+  .message__body,
+  .form{
+    color: var(--bg-color);
+    font-size: 19px;
+  }
+
+  /* ******************************* */
+  /* *** EStilos del componente Question.js */
+  .questions__container{
+    justify-content: center;
+  }
+
+  .question{
+    max-width: 720px;
+    width: 100%;
+  }
+
+  .question__header--title{
+    font-size: 18px;
+    padding: 20px;
+  }
+
+  .question__header--question{
+    font-size: 24px;
+  }
+
+  .question__options{
+    width: 100%;
+    height: 250px;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .question__option{
+    width: 49%;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .question__option:hover{
+    transform: scale(1.1);
+  }
+
+  /* ******************************* */
+  /* *** EStilos del componente QuestionResult.js */
+  .gameover__body{
+    padding: 1rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    justify-content: space-between;
+  }
+  
+  .body__table{
+    font-size: 18px;
+  }
+  
 }
