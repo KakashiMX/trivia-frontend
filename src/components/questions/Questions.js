@@ -1,7 +1,8 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 
 // context
 import { AppContext } from '../../context/AppContext';
+import QuestionsResult from './QuestionsResult';
 
 const Questions = () => {
     const { dataQuestions, formValues } = useContext( AppContext );
@@ -21,6 +22,9 @@ const Questions = () => {
 
     // state para mostrar botón de siguiente pregunta
     const [showNext, setShowNext] = useState(false);
+
+    // state para dar por terminado el juego
+    const [gameOver, setGameOver] = useState(false);
 
     // función para actualizar la respuesta seleccionada
     const handleSelect = e => {
@@ -56,44 +60,54 @@ const Questions = () => {
     const handleNextQuestion = () => {
         setPagination( pagination + 1 );
         setShowNext( false );
-            // obtenemos las opciones
+            // obtenemos las opciones enlistadas
         const options = optionsRef.current.children;
-            // convertimos las opciones a arreglo y después eliminamos la clase si es que la tiene
+            // convertimos las opciones a arreglo y después eliminamos la clase correct o incorrect si es que la tiene
         Array.from(options).map( option => option.className.includes('question__correct') ? option.classList.remove('question__correct') : option.classList.remove('question__incorrect'));
     }
 
     return (
         <div className='questions__container'>
-            
-            <div className="question">
-                <div className='question__header'>
-                    <p className='question__header--title'>Categoria { category } - { pagination+1 }/{total}</p>
 
-                    <p className='question__header--question'>{ dataQuestions[pagination].question}</p>
-                </div>
+            {/* Si dataQuestions[pagination] es igual a undefined, quiere decir que no hay más preguntas por delante y el juego habrá terminado */}
+            { dataQuestions[pagination] !== undefined ? 
+                <div className="question">
+                    <div className='question__header'>
+                        <p className='question__header--title'>Categoria { category } - { pagination+1 }/{total}</p>
+                        
+                        <p className='question__header--question'>{ !gameOver ? dataQuestions[pagination].question : null }</p>        
 
-                <div 
-                    className='question__options'
-                    ref={ optionsRef }
-                >
-                    { dataQuestions[pagination].options.map( option => 
-                        <button
-                            className="question__option"
-                            onClick={ handleSelect }
-                            disabled={ showNext }
-                        >
-                            {option}
-                        </button>
-                    )}
+                    </div>
+
+                    <div 
+                        className='question__options'
+                        ref={ optionsRef }
+                    >
+                        { gameOver === false ? dataQuestions[pagination].options.map( option => 
+                            <button
+                                key={ option }
+                                className="question__option"
+                                onClick={ handleSelect }
+                                disabled={ showNext }
+                            >
+                                {option}
+                            </button>
+                        ) : null }
+                    </div>
+                    { showNext ? 
+                        <button 
+                            className='button question__next'
+                            onClick={ handleNextQuestion }
+                        >Siguiente Pregunta</button>
+                    :null
+                    }
                 </div>
-                { showNext ? 
-                    <button 
-                        className='button question__next'
-                        onClick={ handleNextQuestion }
-                    >Siguiente Pregunta</button>
-                :null
-                }
-            </div>
+            :
+                <QuestionsResult 
+                    total = { total }
+                    result={ result }
+                />
+            }
         </div>
     );
 }
