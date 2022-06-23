@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 
 // context
 import { AppContext } from '../../context/AppContext';
@@ -22,9 +22,6 @@ const Questions = () => {
 
     // state para mostrar botón de siguiente pregunta
     const [showNext, setShowNext] = useState(false);
-
-    // state para dar por terminado el juego
-    const [gameOver, setGameOver] = useState(false);
 
     // función para actualizar la respuesta seleccionada
     const handleSelect = e => {
@@ -75,7 +72,7 @@ const Questions = () => {
                     <div className='question__header'>
                         <p className='question__header--title'>Categoria { category } - { pagination+1 }/{total}</p>
                         
-                        <p className='question__header--question'>{ !gameOver ? dataQuestions[pagination].question : null }</p>        
+                        <p className='question__header--question'>{ dataQuestions[pagination].question }</p>
 
                     </div>
 
@@ -83,7 +80,7 @@ const Questions = () => {
                         className='question__options'
                         ref={ optionsRef }
                     >
-                        { gameOver === false ? dataQuestions[pagination].options.map( option => 
+                        { dataQuestions[pagination].options.map( option => 
                             <button
                                 key={ option }
                                 className="question__option"
@@ -92,7 +89,7 @@ const Questions = () => {
                             >
                                 {option}
                             </button>
-                        ) : null }
+                        )}
                     </div>
                     { showNext ? 
                         <button 
