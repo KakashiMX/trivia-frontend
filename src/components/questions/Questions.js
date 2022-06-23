@@ -70,7 +70,10 @@ const Questions = () => {
             { dataQuestions[pagination] !== undefined ? 
                 <div className="question">
                     <div className='question__header'>
-                        <p className='question__header--title'>Categoria { category } - { pagination+1 }/{total}</p>
+                        <div className='question__header--title'>
+                            <span>Categoria: { category }</span>
+                            <span>Pregunta: { pagination+1 }/{total}</span>
+                        </div>
                         
                         <p className='question__header--question'>{ dataQuestions[pagination].question }</p>
 

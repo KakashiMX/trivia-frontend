@@ -28,7 +28,7 @@ const QuestionsResult = ({ total, result }) => {
             <div className="content__header">Resultados</div>
             <div className="content gameover__body">
                 <div>
-                    <p className='table__head'>Preguntas realizadas - { total }</p>
+                    <p className='table__head'>Preguntas realizadas:  { total }</p>
                     <table className="body__table">
                         <thead>
                             <tr>
