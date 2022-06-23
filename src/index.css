@@ -257,7 +257,7 @@ code {
   font-size: 18px;
   font-weight: bold;
   padding: 1rem;
-  transition: transform 0.5s ease;
+  transition: border 0.8s ease;
 }
 
 .question__correct{
@@ -276,4 +276,35 @@ code {
   padding: 1rem;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+/* ******************************* */
+/* *** EStilos del componente QuestionResult.js */
+
+.gameover__header{
+  background-color: var(--light-acent);
+  color: var(--light-color);
+  width: 350px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 1rem;
+}
+
+.gameover__body{
+  background-color: var(--light-color);
+  width: 350px;
+  height: 250px;
+  padding: 1rem;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-evenly;
 }
