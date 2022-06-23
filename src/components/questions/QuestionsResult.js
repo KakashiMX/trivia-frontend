@@ -23,15 +23,10 @@ const QuestionsResult = ({ total, result }) => {
 
     }
 
-    // función para cerrar ventana
-    const handleOut = () => {
-        window.close();
-    }
-
     return (
-        <>
-            <div className="gameover__header">Resultados</div>
-            <div className="gameover__body">
+        <div className='container'>
+            <div className="content__header">Resultados</div>
+            <div className="content gameover__body">
                 <div>
                     <p className='table__head'>Preguntas realizadas - { total }</p>
                     <table className="body__table">
@@ -57,13 +52,9 @@ const QuestionsResult = ({ total, result }) => {
                         className="button"
                         onClick={ handleStart }
                     >Volver a empezar</button>
-                    <button 
-                        className="button"
-                        onClick={ handleOut }
-                    >Salir</button>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
  

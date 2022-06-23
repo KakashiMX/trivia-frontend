@@ -28,11 +28,11 @@ const Form = () => {
     }
 
     return (
-        <div className='form__container'>
+        <div className='container'>
                 <div 
-                    className='form__title animate__animated animate__bounceIn'>Antes de comenzar</div>
+                    className='content__header'>Antes de comenzar</div>
             <form 
-                className='form animate__animated animate__bounceIn'
+                className='content form'
                 onSubmit={ handleInit }
             >
 

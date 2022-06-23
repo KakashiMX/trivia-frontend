@@ -19,16 +19,12 @@ const  WelcomeMessage= () => {
 
     return (
         <div 
-            className='message__container'
+            className='container'
         >
-            <div className='message'>
-                <div 
-                    className='message__header'
-                >Bienvenido a este juego de Trivia</div>
+            <div className='content__header'>Bienvenido</div>
+            <div className='content'>
 
-                <div 
-                    className='message__body'
-                >
+                <div className='message__body'>
                     <p>Esta es una implementación de mi RestAPI "Trivia"</p>
                     <p>Hay varias categorias para seleccionar, como por ejemplo: Cine, Videojuegos, Freestyle</p>
                     <p>Cada categoria cuenta actualmente con 50 preguntas</p>
