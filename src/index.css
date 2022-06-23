@@ -29,19 +29,23 @@ code {
 /* *** Estilos generales para botones */
 .button{
   display: block;
-  padding: 0.6rem;
+  padding: 0.3rem;
   border: none;
   border-radius: 3px;
   margin-left: auto;
   margin-right: auto;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
+  background-color: var(--light-acent);
+  color: var(--light-color);
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 120px;
 }
 
 .button:hover{
-  border: 2px solid var(--dark-color);
-  background-color: transparent;
+  border: 2px solid var(--light-acent);
+  background-color: var(--gray-color);
   color: var(--dark-color);
 }
 
@@ -298,13 +302,33 @@ code {
 .gameover__body{
   background-color: var(--light-color);
   width: 350px;
-  height: 250px;
+  height: 270px;
   padding: 1rem;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .buttons{
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+
+.table__head{
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  text-align: center;
+  padding: 10px;
+  margin-bottom: -2px;
+}
+
+.body__table{
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+  border-spacing: 12px;
+  border: 1px solid var(--dark-color);
 }

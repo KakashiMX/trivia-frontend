@@ -32,9 +32,25 @@ const QuestionsResult = ({ total, result }) => {
         <>
             <div className="gameover__header">Resultados</div>
             <div className="gameover__body">
-                <p>Has terminado esta trivia con</p>
-                <p>Correctas: { result.corrects }/{total}</p>
-                <p>Incorrectas: { result.incorrects }/{total}</p>
+                <div>
+                    <p className='table__head'>Preguntas realizadas - { total }</p>
+                    <table className="body__table">
+                        <thead>
+                            <tr>
+                                <th className='table__head--row'>Correctas</th>
+                                <th className='table__head--row'>Incorrectas</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+
+                            <tr className='table__row'>
+                                <td className='row__body'>{ result.corrects}</td>
+                                <td className='row__body'>{ result.incorrects}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <div className="buttons">
                     <button 
