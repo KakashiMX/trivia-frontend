@@ -68,7 +68,8 @@ const AppProvider = props => {
                 setFormValues,
                 loading,
                 setLoading,
-                dataQuestions
+                dataQuestions,
+                setDataQuestions
             }}
         >
             { props.children }
