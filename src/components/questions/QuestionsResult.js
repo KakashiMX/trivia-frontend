@@ -1,16 +1,33 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+// context
+import { AppContext } from '../../context/AppContext';
 
 const QuestionsResult = ({ total, result }) => {
 
+    const { showComponent, setShowComponent, setDataQuestions, setFormValues } = useContext(AppContext)
+
     // función para mostrar de nuevo el formulario
     const handleStart = () => {
-        console.log('Mostrando el formulario');
+        setDataQuestions(null);
+
+        setFormValues({
+            category: 'aleatoria',
+            total: ''
+        });
+
+        setShowComponent({
+            ...showComponent,
+            showform: true
+        });
+
     }
 
     // función para cerrar ventana
     const handleOut = () => {
         window.close();
     }
+
     return (
         <>
             <div className="gameover__header">Resultados</div>
