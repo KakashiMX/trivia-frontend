@@ -5,9 +5,8 @@ import { UIContext } from '../../context/UIContext';
 
 // componentes
 import Modal from '../ui/modal/Modal';
-
 import Loading from '../ui/loading/Loading';
-// import Questions from '../questions/Questions';
+import PrincipalContent from './PrincipalContent';
 
 const Principal = () => {
     // state para ocultar el mensaje de bienvenida
@@ -20,7 +19,7 @@ const Principal = () => {
             { loading ? 
                 <Loading /> : null
             }
-            { !isOpenModal && !loading ? <h1>Hola mundo</h1> : null }
+            { !isOpenModal && !loading ? <PrincipalContent /> : null }
         </>
     );
 }
