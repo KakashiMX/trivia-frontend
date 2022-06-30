@@ -24,6 +24,9 @@ const PuzzlesProvider = ({ children }) => {
     // estado para formulario
     const [totalPuzzles, setTotalPuzzles] = useState(null);
 
+    // estado para respuesta dada por el usuario del acertijo
+    const [response, setResponse] = useState("");
+
     useEffect( () => {
         const getPuzzlesData = async () => {
             const data = await getPuzzles(totalPuzzles);
@@ -34,6 +37,7 @@ const PuzzlesProvider = ({ children }) => {
         setTimeout(() => {
             setLoading( false )
         }, 3000);
+        // eslint-disable-next-line
     }, [ loading ] );
 
     return (
@@ -41,7 +45,8 @@ const PuzzlesProvider = ({ children }) => {
             value={{
                 puzzles,
                 totalPuzzles,
-                setTotalPuzzles
+                setTotalPuzzles,
+                response, setResponse
             }}
         >
             { children }
