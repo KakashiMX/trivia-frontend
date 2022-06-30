@@ -5,13 +5,16 @@ import Principal from './components/app/Principal';
 
 // context
 import AppProvider from './context/AppContext';
+import UIProvider from './context/UIContext';
 
 function App() {
 
   return (
-    <AppProvider>
-      <Principal />
-    </AppProvider>
+    <UIProvider>
+      <AppProvider>
+        <Principal />
+      </AppProvider>
+    </UIProvider>
   );
 }
 

@@ -1,4 +1,7 @@
-import React, { createContext, useEffect, useState} from 'react';
+import React, { createContext, useContext, useEffect, useState} from 'react';
+
+//context
+import { UIContext } from './UIContext';
 
 // helpers
 import { getCategories } from '../helper/getCategories';
@@ -9,12 +12,9 @@ export const AppContext = createContext();
 
 const AppProvider = props => {
 
-  // state para ocultar o mostrar las ventanas emergente
-  const [showComponent, setShowComponent] = useState({
-    showwelcomemessage: true,
-    showform: false,
-    showloadinmessage: false
-  });
+  // uso de context UI
+  // state para mostrar un loading
+  const { loading, setLoading } = useContext( UIContext );
 
   // state para categorias
   const [categories, setCategories] = useState(null);
@@ -26,9 +26,6 @@ const AppProvider = props => {
     });
 
     const { category, total } = formValues;
-
-  // state para mostrar un loading
-  const [loading, setLoading] = useState(false);
 
   // state para las preguntas de la DB
   const [dataQuestions, setDataQuestions] = useState(null);
@@ -61,13 +58,9 @@ const AppProvider = props => {
     return (
         <AppContext.Provider
             value={{
-                showComponent, 
-                setShowComponent,
                 categories,
                 formValues, 
                 setFormValues,
-                loading,
-                setLoading,
                 dataQuestions,
                 setDataQuestions
             }}
