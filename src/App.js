@@ -5,6 +5,7 @@ import Principal from './components/app/Principal';
 
 // context
 import GamesProvider from './context/GamesContext';
+import PuzzlesProvider from './context/PuzzlesContext';
 import UIProvider from './context/UIContext';
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
   return (
     <UIProvider>
       <GamesProvider>
-        <Principal />
+        <PuzzlesProvider>
+          <Principal />
+        </PuzzlesProvider>
       </GamesProvider>
     </UIProvider>
   );
