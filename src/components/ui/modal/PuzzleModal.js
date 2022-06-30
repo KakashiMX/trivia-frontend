@@ -18,12 +18,13 @@ const PuzzleModal = () => {
 
     return (
         <>
-            <div className="content__header">Acertijos</div>
+            <div className="content__header">Modo de Juego</div>
             <div className="content">
-                <p><b>Antes de comenzar</b></p>
-                <p>Recuerda que puedes obtener una pista o simplemente mostrar la solución al acertijo</p>
+                <p><b>Acertijos:</b> Resuelve el acertijo planteado, puedes obtener una pista o simplemente mostrar la solución</p>
+                
+
                 <div className="form__group">
-                    <label htmlFor="" className="form__label">Elije el total de acertijos a resolver</label>
+                    <label htmlFor="" className="form__label">¿Cuántos puedes resolver?</label>
                     <input 
                         type="number" 
                         className="form__input"
