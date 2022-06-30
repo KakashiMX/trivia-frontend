@@ -7,11 +7,12 @@ import { PuzzlesContext } from '../../../context/PuzzlesContext';
 const PuzzleModal = () => {
 
     // accediendo al context de UIContext
-    const { setActualModal, setLoading } = useContext( UIContext );
+    const { setActualModal, setLoading, setIsOpenModal } = useContext( UIContext );
     const { setTotalPuzzles } = useContext( PuzzlesContext );
 
     const handleClick = () => {
-        setActualModal(2);
+        setActualModal(0);
+        setIsOpenModal( false );
         setLoading( true );
     }
 

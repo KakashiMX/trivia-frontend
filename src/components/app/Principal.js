@@ -1,35 +1,25 @@
 import React, { useContext } from 'react';
 
 // context
-import { AppContext } from '../../context/AppContext';
+import { UIContext } from '../../context/UIContext';
 
 // componentes
-import WelcomeMessage from '../../components/ui/WelcomeMessage';
-import Form from '../form/Form';
-import Loading from '../ui/Loading';
-import Questions from '../questions/Questions';
+import Modal from '../ui/modal/Modal';
+
+import Loading from '../ui/loading/Loading';
+// import Questions from '../questions/Questions';
 
 const Principal = () => {
     // state para ocultar el mensaje de bienvenida
-  const { showComponent, loading,  } = useContext( AppContext );
-  const { showwelcomemessage, showform } = showComponent
+  const { isOpenModal, loading  } = useContext( UIContext );
 
     return (
         <>
-            { showwelcomemessage ? 
-                <WelcomeMessage
-                />
-                :
-                null
-            }
-            { showform ?
-                <Form /> : null
-            }
+            { isOpenModal ? <Modal /> : null }
 
             { loading ? 
                 <Loading /> : null
             }
-            { !showwelcomemessage && !showform && !loading ? <Questions /> : null }
         </>
     );
 }
