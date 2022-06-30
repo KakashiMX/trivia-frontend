@@ -4,16 +4,16 @@ import React from 'react';
 import Principal from './components/app/Principal';
 
 // context
-import AppProvider from './context/AppContext';
+import GamesProvider from './context/GamesContext';
 import UIProvider from './context/UIContext';
 
 function App() {
 
   return (
     <UIProvider>
-      <AppProvider>
+      <GamesProvider>
         <Principal />
-      </AppProvider>
+      </GamesProvider>
     </UIProvider>
   );
 }
