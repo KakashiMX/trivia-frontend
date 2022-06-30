@@ -16,7 +16,7 @@ const PuzzlesProvider = ({ children }) => {
     const { gameSelect } = useContext( GamesContext );
 
     // accediendo al context de UIContext
-    const { loading } = useContext( UIContext );
+    const { loading, setLoading } = useContext( UIContext );
 
     // estado para consultar la DB
     const [puzzles, setPuzzles] = useState(null);
@@ -31,6 +31,9 @@ const PuzzlesProvider = ({ children }) => {
         }
         if( totalPuzzles !== null && gameSelect === 'acertijos' && loading ) getPuzzlesData();
         
+        setTimeout(() => {
+            setLoading( false )
+        }, 3000);
     }, [ loading ] );
 
     return (
