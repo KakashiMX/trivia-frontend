@@ -14,6 +14,12 @@ const GamesProvider = ({ children }) => {
     // estado para el formulario 
     const [gameSelect, setGameSelect] = useState(null);
 
+    // estado para buenas e incorrectas en los juegos
+    const [result, setResult] = useState({
+        correct: 0,
+        incorrect: 0
+    });
+
     useEffect( () => {
         const getListGames = async () => {
             const data = await getGamesList();
@@ -26,7 +32,8 @@ const GamesProvider = ({ children }) => {
             value={{
                 listGames,
                 gameSelect,
-                setGameSelect
+                setGameSelect,
+                result, setResult
             }}
         >
             { children }
