@@ -3,3 +3,6 @@
 
 icono logo.png
 <a href="https://www.flaticon.com/free-icons/quiz" title="quiz icons">Quiz icons created by Good Ware - Flaticon</a>
+
+icono question.png
+<a href="https://www.flaticon.com/free-icons/question" title="question icons">Question icons created by Roundicons - Flaticon</a>
