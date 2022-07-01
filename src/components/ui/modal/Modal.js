@@ -14,12 +14,12 @@ const Modal = () => {
     const { gameSelect } = useContext( GamesContext );
 
     return (
-        <div className="container">
+        <>
             
             { actualModal === 0 ? <GameModal /> : null }
 
             { actualModal === 1 && gameSelect === 'acertijos' ? <PuzzleModal />: null}
-        </div>
+        </>
     );
 }
  
