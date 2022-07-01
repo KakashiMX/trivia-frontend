@@ -4,8 +4,8 @@ import React, { useContext } from 'react';
 import CompleteIcon from '../../../icons/complete.png';
 
 // context
-import { GamesContext } from '../../../context/GamesContext';
-import { PuzzlesContext } from '../../../context/PuzzlesContext';
+import { GamesContext } from '../../../../context/GamesContext';
+import { PuzzlesContext } from '../../../../context/PuzzlesContext';
 
 const ModalResult = () => {
 
@@ -60,3 +60,9 @@ const ModalResult = () => {
 }
  
 export default ModalResult;
+
+/* 
+        En este componente se mostrará el resultado al termino de cada juego
+        se mostrarán las respuestas correctas e incorrectas
+        así como un botón para empezar de nuevo
+*/
