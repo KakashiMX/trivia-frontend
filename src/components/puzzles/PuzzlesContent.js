@@ -1,5 +1,10 @@
 import React, { useContext, useRef, useState } from 'react';
+
+// iconos
 import QuestionIcon from '../../icons/question.png';
+
+// componentes
+import ModalResult from '../ui/modal/ModalResult';
 
 // context
 import { PuzzlesContext } from '../../context/PuzzlesContext';
@@ -85,7 +90,7 @@ const PuzzlesContent = () => {
     }
     return (
         <>
-        { puzzles[numberPuzzle] !== null ? 
+        { puzzles[numberPuzzle] !== undefined ? 
             <>
                 <div className="game__header">
                     <div className="game__header--title">
@@ -120,15 +125,12 @@ const PuzzlesContent = () => {
                         </div>
                     </div>
                     
+                    <button 
+                        className="button button--gray"
+                        onClick={ handleVerify }
+                        disabled={ nextPuzzle }
+                    >Comprobar respuesta</button>
                     
-
-                    <div className="game__buttons">
-                        <button 
-                            className="button button--gray"
-                            onClick={ handleVerify }
-                            disabled={ nextPuzzle }
-                        >Comprobar respuesta</button>
-                    </div>
                     { nextPuzzle ? 
                         <button 
                             className="button"
@@ -138,10 +140,7 @@ const PuzzlesContent = () => {
                     }
 
                 </div>
-            </>
-        : null}
-
-            <div 
+                <div 
                 className='modal__background fadein'
                 ref={ helpRef }
             >
@@ -178,6 +177,11 @@ const PuzzlesContent = () => {
                     >OK</button>
                 </div>
             </div>
+            </>
+        : 
+            <ModalResult />
+        }
+        
         </>
     );
 }

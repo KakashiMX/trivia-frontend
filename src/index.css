@@ -61,8 +61,7 @@ code {
   border-radius: 5px;
   display: block;
   text-align: center;
-  max-width: 350px;
-  width: 100%;
+  width: 350px;
   font-size: 18px;
 }
 
@@ -98,6 +97,10 @@ code {
   background-color: var(--gray-color-alt);
 }
 
+.button--dark{
+  background-color: var(--dark-color);
+}
+
 .button:hover{
   transform: scale(1.1);
 }
@@ -108,7 +111,6 @@ code {
 .form__group{
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
   width: 90%;
   margin-left: auto;
 }
@@ -227,7 +229,6 @@ code {
 /* ******************************* */
 /* *** EStilos del componente PuzzlesContent.js y sus componentes */
 .game__group{
-  margin-top: 30px;
   width: 320px;
   margin-left: auto;
   margin-right: auto;
@@ -237,7 +238,7 @@ code {
   border: 0;
   background-color: transparent;
   border-bottom: 2px solid var(--dark-color);
-  transition: transform 0.1s ease, border 0.5s ease-out;
+  transition: border 0.5s ease-out;
   font-size: 16px;
   text-align: center;
   border-radius: 0;
@@ -257,7 +258,7 @@ code {
 }
 
 .game__input:focus{
-  transform: scale(1.1);
+  border-bottom: 2px solid var(--light-acent);
 }
 
 .game__help{
@@ -309,24 +310,6 @@ code {
 /* ******************************* */
 /* *** EStilos del componente Result.js */
 
-.gameover__header{
-  margin-top: 20px;
-}
-
-.gameover__body{
-  height: 270px;
-  padding: 1rem;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  justify-content: space-between;
-}
-
-.buttons{
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 30px;
-}
-
 .table__head{
   background-color: var(--dark-color);
   color: var(--light-color);
@@ -341,6 +324,7 @@ code {
   text-align: center;
   border-spacing: 12px;
   border: 1px solid var(--dark-color);
+  margin-bottom: 20px;
 }
 
 .table__row .row__body:first-child{
@@ -360,9 +344,18 @@ code {
   /* ******************************** */
   /* *** Estilos generales *** */
 
-  .content,
-  .content__header{
-    width: 500px;
+  .modal{
+    width: 450px;
+  }
+
+  .game__content,
+  .game__header,
+  .game__body{
+    width: 600px;
+  }
+
+  .game__group{
+    width: 70%;
   }
 
 
@@ -402,19 +395,6 @@ code {
 
   .question__option:hover{
     transform: scale(1.1);
-  }
-
-  /* ******************************* */
-  /* *** EStilos del componente QuestionResult.js */
-  .gameover__body{
-    padding: 1rem;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    justify-content: space-between;
-  }
-  
-  .body__table{
-    font-size: 18px;
   }
   
 }
