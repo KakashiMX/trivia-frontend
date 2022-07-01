@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useEffect, useState} from 'react';
 
+
 //context
 import { UIContext } from './UIContext';
 
 // helpers
-import { getCategories } from '../helper/getCategories';
-import { getQuestions } from '../helper/getQuestions';
+import { getCategories, getQuestions } from '../helper/quiz/quiz';
+
 
 // creación del context
 export const QuizContext = createContext();
