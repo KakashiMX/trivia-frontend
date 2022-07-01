@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 
 // icono 
-import PuzzleIcon from '../../../icons/puzzle.png';
+import PuzzleIcon from '../../../../icons/puzzle.png';
 
 // context
-import { UIContext } from '../../../context/UIContext';
-import { PuzzlesContext } from '../../../context/PuzzlesContext';
+import { UIContext } from '../../../../context/UIContext';
+import { PuzzlesContext } from '../../../../context/PuzzlesContext';
 
 const PuzzleModal = () => {
 
@@ -57,3 +57,8 @@ const PuzzleModal = () => {
 }
  
 export default PuzzleModal;
+
+/* 
+    Este componente de modal, se muestra despues de elegir el modo de juego "acertijos"
+    muestra información acerca del juego así como un formulario para el total de acertijos a resolver
+*/
