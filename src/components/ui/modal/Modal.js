@@ -5,7 +5,7 @@ import { GamesContext } from '../../../context/GamesContext';
 import { UIContext } from '../../../context/UIContext';
 
 // componentes
-import GameModal from './GameModal';
+import GameModal from './games/GameModal';
 import PuzzleModal from './puzzles/PuzzleModal';
 
 const Modal = () => {

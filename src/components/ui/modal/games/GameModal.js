@@ -5,7 +5,7 @@ import { UIContext } from '../../../../context/UIContext';
 import { GamesContext } from '../../../../context/GamesContext';
 
 // icono
-import InfoIcon from '../../../icons/information.png';
+import InfoIcon from '../../../../icons/information.png';
 
 const GameModal = () => {
 

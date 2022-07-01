@@ -1,12 +1,12 @@
 import React, { useContext, useRef, useState } from 'react';
 
 // componentes
-import ModalResult from '../ui/modal/ModalResult';
+import ModalResult from '../ui/modal/games/ModalResult';
+import PuzzlesHelpModal from '../ui/modal/puzzles/PuzzlesHelpModal';
 
 // context
 import { PuzzlesContext } from '../../context/PuzzlesContext';
 import { GamesContext } from '../../context/GamesContext';
-import PuzzlesHelpModal from '../ui/modal/puzzles/PuzzlesHelpModal';
 
 const PuzzlesContent = () => {
 

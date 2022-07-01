@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 // icono
-import CompleteIcon from '../../../icons/complete.png';
+import CompleteIcon from '../../../../icons/complete.png';
 
 // context
 import { GamesContext } from '../../../../context/GamesContext';
