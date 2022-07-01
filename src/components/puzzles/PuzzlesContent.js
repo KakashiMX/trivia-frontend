@@ -1,4 +1,5 @@
 import React, { useContext, useRef, useState } from 'react';
+import QuestionIcon from '../../icons/question.png';
 
 // context
 import { PuzzlesContext } from '../../context/PuzzlesContext';
@@ -13,12 +14,28 @@ const PuzzlesContent = () => {
 
     // referencia al input para agregar o eliminar clase
     const inputRef = useRef();
+    const helpRef = useRef();
 
     // estado de paginación para los acertijos
     const [numberPuzzle, setNumberPuzzle] = useState(0);
 
     // estado para mostrar botón de siguiente acertijo
     const [nextPuzzle, setNextPuzzle] = useState(false);
+
+    // estado para mostrar la respuesta o pista
+    const [help, setHelp] = useState(null);
+
+    // función para obtener pista o respuesta
+    const handleShowHelp =(number) => {
+        setHelp( number );
+        helpRef.current.classList.add('modal__background--show');
+    }
+
+    // función para cerrar la modal de ayuda
+    const handleCloseModal = () => {
+        setHelp( null );
+        helpRef.current.classList.remove('modal__background--show');
+    }
 
     // función para verificar la respuesta del usuario
     const handleVerify = () => {
@@ -35,7 +52,7 @@ const PuzzlesContent = () => {
             });
         
             // agrega la clase al input de correcto
-            inputRef.current.classList.add('game__input--correct');
+            inputRef.current.classList.add('game__input--correct', 'fadein');
 
         }else{
             // aumenta el  resultado de incorrecto en 1
@@ -90,27 +107,28 @@ const PuzzlesContent = () => {
                             placeholder='Ingresa tu respuesta'
                             onChange={ e => setResponse( e.target.value ) }
                         />
+                        <div className="game__help">
+                            {/* En la respuesta del backend, hay acertijos que pueden tener pistas, si las hay, entonces muestra un botón */}
+                            { puzzles[ numberPuzzle ].suggestion !== undefined ? 
+                                <small
+                                    onClick={ () => handleShowHelp(0)}
+                                >Pista <i className="fa-solid fa-shoe-prints"></i></small>
+                            : null}
+
+                            <small
+                                onClick={ () => handleShowHelp(1)}
+                            >Solución <i className="fa-solid fa-circle-question"></i></small>
+                        </div>
                     </div>
+                    
+                    
 
                     <div className="game__buttons">
-                        {/* En la respuesta del backend, hay acertijos que pueden tener pistas, si las hay, entonces muestra un botón */}
-                        { puzzles[ numberPuzzle ].suggestion !== undefined ? 
-                            <button className="button game__button">Ver pista</button>
-                        : null}
-
                         <button 
                             className="button game__button"
                             onClick={ handleVerify }
                             disabled={ nextPuzzle }
                         >Comprobar respuesta</button>
-
-                        {/* Si el estado de nextPuzzle es verdadero, quiere decir que la respuesta del usuario ya se verificó y muestra un botón para la solución correcta */}
-                        { nextPuzzle ? 
-                            <button 
-                                className="button game__button"
-                            >Ver solución</button>
-                            : null
-                        }
                     </div>
 
                     <div>
@@ -125,6 +143,46 @@ const PuzzlesContent = () => {
                 </div>
             </>
         : null}
+
+            <div 
+                className='modal__background fadein'
+                ref={ helpRef }
+            >
+                <div 
+                    className='modal'
+                >
+                    <div className="modal__head">
+                        <img 
+                            src={ QuestionIcon }
+                            alt="signo de interrogación" 
+                            className='modal__icon'
+                        />
+                        { help === 0 ? 
+                            <>
+                                <h2>¡Pista del acertijo!</h2>
+                            </>
+                        :
+                            <>
+                                <h2>¡Solución al acertijo!</h2>
+                                <h3>La respuesta es: </h3>
+                            </>
+                        }
+                    </div>
+                    
+                    <div className="modal__body">
+                        <p>{ 
+                        help === 0 ? puzzles[ numberPuzzle ].suggestion : puzzles[ numberPuzzle ].answer
+                        }</p>
+                    </div>
+
+                    <div className="modal__buttons">
+                        <button 
+                            className='modal__button modal__button--confirm'
+                            onClick={ handleCloseModal }
+                        >OK</button>
+                    </div>
+                </div>
+            </div>
         </>
     );
 }

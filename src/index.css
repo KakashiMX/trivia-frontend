@@ -187,6 +187,7 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .game__content{
@@ -223,6 +224,26 @@ code {
   justify-content: space-around;
 }
 
+.game__group{
+  margin-top: 30px;
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.game__input{
+  border: 0;
+  background-color: transparent;
+  border-bottom: 2px solid var(--dark-color);
+  transition: transform 0.1s ease, border 0.5s ease-out;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 0;
+}
+
+.game__input:disabled{
+  cursor: not-allowed;
+}
 
 .game__buttons{
   display: flex;
@@ -250,27 +271,6 @@ code {
   background-color: #198754;
 }
 
-.game__group{
-  margin-top: 30px;
-  width: 320px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.game__input{
-  border: 0;
-  background-color: transparent;
-  border-bottom: 2px solid var(--dark-color);
-  transition: transform 0.1s ease, border 0.5s ease-out;
-  font-size: 16px;
-  text-align: center;
-  border-radius: 0;
-}
-
-.game__input:disabled{
-  cursor: not-allowed;
-}
-
 .game__input--correct{
   border-bottom: 2px solid var(--correct-color);
 }
@@ -286,6 +286,62 @@ code {
 .game__button:disabled{
   opacity: 0.3;
   cursor: not-allowed;
+}
+
+.game__help{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  opacity: 0.6;
+}
+
+.game__help:hover{
+  cursor: pointer;
+}
+
+.modal__background{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.modal__background--show{
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__icon{
+  width: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal{
+  background-color: var(--light-color);
+  padding: 2rem;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
+  width: 350px;
+  font-size: 1.3rem;
+  color: #4b4b4b;
+}
+
+.fadein{
+  animation: fadein 1s ease;
+}
+
+@keyframes fadein {
+  from { clip-path: circle(0% at 50% 50%); }
+  to { clip-path: circle(100% at 50% 50%); }
 }
 
 .question__option{
