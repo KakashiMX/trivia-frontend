@@ -6,6 +6,7 @@ import Principal from './components/app/Principal';
 // context
 import GamesProvider from './context/GamesContext';
 import PuzzlesProvider from './context/PuzzlesContext';
+import QuizProvider from './context/QuizContext';
 import UIProvider from './context/UIContext';
 
 function App() {
@@ -14,7 +15,9 @@ function App() {
     <UIProvider>
       <GamesProvider>
         <PuzzlesProvider>
-          <Principal />
+          <QuizProvider>
+            <Principal />
+          </QuizProvider>
         </PuzzlesProvider>
       </GamesProvider>
     </UIProvider>

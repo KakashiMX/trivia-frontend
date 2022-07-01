@@ -8,9 +8,9 @@ import { getCategories } from '../helper/getCategories';
 import { getQuestions } from '../helper/getQuestions';
 
 // creación del context
-export const AppContext = createContext();
+export const QuizContext = createContext();
 
-const AppProvider = props => {
+const QuizProvider = props => {
 
   // uso de context UI
   // state para mostrar un loading
@@ -19,13 +19,13 @@ const AppProvider = props => {
   // state para categorias
   const [categories, setCategories] = useState(null);
 
-  // state para el formualario
-  const [formValues, setFormValues] = useState({
+  // state para el formualario de QuizModal.js
+  const [triviaValues, setTriviaValues] = useState({
     category: 'aleatoria',
-    total: '',
-    });
+    total: ''
+  });
 
-    const { category, total } = formValues;
+    const { category, total } = triviaValues;
 
   // state para las preguntas de la DB
   const [dataQuestions, setDataQuestions] = useState(null);
@@ -49,25 +49,24 @@ const AppProvider = props => {
 
     setTimeout(() => {
         setLoading( false );
-      }, 3000);
+      }, 4000);
 
       // eslint-disable-next-line
   }, [ loading ]);
 
     // valores para acceder por useContext
     return (
-        <AppContext.Provider
+        <QuizContext.Provider
             value={{
                 categories,
-                formValues, 
-                setFormValues,
+                triviaValues, setTriviaValues,
                 dataQuestions,
                 setDataQuestions
             }}
         >
             { props.children }
-        </AppContext.Provider>
+        </QuizContext.Provider>
     );
 }
 
-export default AppProvider;
+export default QuizProvider;
