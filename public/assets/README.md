@@ -18,3 +18,6 @@ icono de quiz.png
 
 icono de prover.png
 <a href="https://www.flaticon.es/iconos-gratis/palabras-clave" title="palabras clave iconos">Palabras clave iconos creados por Iconjam - Flaticon</a>
+
+icono de complete.png
+<a href="https://www.flaticon.es/iconos-gratis/completar" title="completar iconos">Completar iconos creados por IYAHICON - Flaticon</a>
