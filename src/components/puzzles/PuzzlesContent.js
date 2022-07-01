@@ -1,14 +1,12 @@
 import React, { useContext, useRef, useState } from 'react';
 
-// iconos
-import QuestionIcon from '../../icons/question.png';
-
 // componentes
 import ModalResult from '../ui/modal/ModalResult';
 
 // context
 import { PuzzlesContext } from '../../context/PuzzlesContext';
 import { GamesContext } from '../../context/GamesContext';
+import PuzzlesHelpModal from '../ui/modal/puzzles/PuzzlesHelpModal';
 
 const PuzzlesContent = () => {
 
@@ -35,12 +33,6 @@ const PuzzlesContent = () => {
     const handleShowHelp =(number) => {
         setHelp( number );
         helpRef.current.classList.add('modal__background--show');
-    }
-
-    // función para cerrar la modal de ayuda
-    const handleCloseModal = () => {
-        setHelp( null );
-        helpRef.current.classList.remove('modal__background--show');
     }
 
     // función para verificar la respuesta del usuario
@@ -140,43 +132,13 @@ const PuzzlesContent = () => {
                     }
 
                 </div>
-                <div 
-                className='modal__background fadein'
-                ref={ helpRef }
-            >
-                <div 
-                    className='modal'
-                >
-                    <div className="modal__head">
-                        <img 
-                            src={ QuestionIcon }
-                            alt="signo de interrogación" 
-                            className='modal__icon'
-                        />
-                        { help === 0 ? 
-                            <>
-                                <h2>¡Pista del acertijo!</h2>
-                            </>
-                        :
-                            <>
-                                <h2>¡Solución al acertijo!</h2>
-                                <h3>La respuesta es: </h3>
-                            </>
-                        }
-                    </div>
-                    
-                    <div className="modal__body">
-                        <p>{ 
-                        help === 0 ? puzzles[ numberPuzzle ].suggestion : puzzles[ numberPuzzle ].answer
-                        }</p>
-                    </div>
-
-                    <button 
-                        className='button'
-                        onClick={ handleCloseModal }
-                    >OK</button>
-                </div>
-            </div>
+                
+                <PuzzlesHelpModal 
+                    helpRef={ helpRef }
+                    help={ help }
+                    setHelp= { setHelp }
+                    numberPuzzle={ numberPuzzle }
+                />
             </>
         : 
             <ModalResult />
