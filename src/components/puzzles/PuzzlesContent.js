@@ -14,6 +14,7 @@ const PuzzlesContent = () => {
 
     // referencia al input para agregar o eliminar clase
     const inputRef = useRef();
+    // referencia para mostrar la respuesta o pista
     const helpRef = useRef();
 
     // estado de paginación para los acertijos
@@ -42,7 +43,7 @@ const PuzzlesContent = () => {
 
         // verifica que la respuesta se incluya en las respuestas correctas del acertijo
         const isCorrect = puzzles[ numberPuzzle ].correct.includes( response.toLowerCase() );
-
+        
         // si es correct
         if( isCorrect ) {
             // aumenta el resultado de correcto en 1
@@ -64,7 +65,6 @@ const PuzzlesContent = () => {
             // agrega la clase al input de incorrecto
             inputRef.current.classList.add('game__input--incorrect');
         }
-
         // una vez verificada la respuesta, muestra el botón de siguiente
         setNextPuzzle( true );
     }
@@ -83,7 +83,6 @@ const PuzzlesContent = () => {
             // si no la tiene,entonces tiene la clase de incorrecto y la elimina
         inputRef.current.className.includes('game__input--correct') ? inputRef.current.classList.remove('game__input--correct') : inputRef.current.classList.remove('game__input--incorrect') 
     }
-
     return (
         <>
         { puzzles[numberPuzzle] !== null ? 
@@ -125,21 +124,19 @@ const PuzzlesContent = () => {
 
                     <div className="game__buttons">
                         <button 
-                            className="button game__button"
+                            className="button button--gray"
                             onClick={ handleVerify }
                             disabled={ nextPuzzle }
                         >Comprobar respuesta</button>
                     </div>
+                    { nextPuzzle ? 
+                        <button 
+                            className="button"
+                            onClick={ handleNextPuzzle }
+                        >Siguiente Acertijo</button> 
+                        : null
+                    }
 
-                    <div>
-                        { nextPuzzle ? 
-                            <button 
-                                className="button"
-                                onClick={ handleNextPuzzle }
-                            >Siguiente Pregunta</button>
-                            : null
-                        }
-                    </div>
                 </div>
             </>
         : null}
@@ -175,12 +172,10 @@ const PuzzlesContent = () => {
                         }</p>
                     </div>
 
-                    <div className="modal__buttons">
-                        <button 
-                            className='modal__button modal__button--confirm'
-                            onClick={ handleCloseModal }
-                        >OK</button>
-                    </div>
+                    <button 
+                        className='button'
+                        onClick={ handleCloseModal }
+                    >OK</button>
                 </div>
             </div>
         </>
