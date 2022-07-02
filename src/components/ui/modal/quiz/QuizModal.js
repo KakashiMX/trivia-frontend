@@ -38,7 +38,7 @@ const QuizModal = () => {
                         alt="icono de trivia" 
                         className='modal__icon'
                     />
-                    <p><b>Trivia:</b> Cuántas respuestas correctas puedes obtener. Elige entre Películas, Freestyle, Fútbol y más</p>
+                    <p><b>Trivia:</b> Cuántas respuestas correctas puedes obtener. Elige entre Películas, Freestyle, Fútbol y más. Actualmente cada categoría cuenta con 50 preguntas</p>
                 </div>
 
                 <div className="modal__body">
