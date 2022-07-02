@@ -5,13 +5,11 @@ import CompleteIcon from '../../../../icons/complete.png';
 
 // context
 import { GamesContext } from '../../../../context/GamesContext';
-import { PuzzlesContext } from '../../../../context/PuzzlesContext';
 
 const ModalResult = () => {
 
-    // accediendo al context de UIContext
-    const { result } = useContext( GamesContext );
-    const { totalPuzzles } = useContext( PuzzlesContext );
+    // accediendo al context de GamesContext, PuzzlesContext, QuizContext
+    const { result, gameSelect } = useContext( GamesContext );
 
     // función para juego nuevo
     const handleNewGame = () => {
@@ -31,7 +29,7 @@ const ModalResult = () => {
                 </div>
 
                 <div className="modal__body">
-                    <p className='table__head'>Preguntas realizadas:  { totalPuzzles }</p>
+                    <p className='table__head'>{ gameSelect.toUpperCase() }</p>
                     <table className="body__table">
                         <thead>
                             <tr>
