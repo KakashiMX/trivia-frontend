@@ -33,7 +33,7 @@ const PuzzleModal = () => {
                 </div>
                 
                 <div className="modal__body">
-                    <p><b>Una cosa a tener en cuenta:</b> Las respuestas no deben tener faltas de ortografía, recuerda tildar las palabras </p>
+                    <p><b>A tener en cuenta:</b> Las respuestas no deben tener faltas de ortografía, recuerda tildar las palabras </p>
                     <div className="form__group">
                         <label htmlFor="" className="form__label">¿Cuántos acertijos puedes resolver?</label>
                         <input 
