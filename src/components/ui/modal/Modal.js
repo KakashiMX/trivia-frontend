@@ -6,6 +6,7 @@ import { UIContext } from '../../../context/UIContext';
 
 // componentes
 import GameModal from './games/GameModal';
+import ProversModal from './provers/ProversModal';
 import PuzzleModal from './puzzles/PuzzleModal';
 import QuizModal from './quiz/QuizModal';
 
@@ -22,6 +23,8 @@ const Modal = () => {
             { actualModal === 1 && gameSelect === 'acertijos' ? <PuzzleModal />: null}
 
             { actualModal === 1 && gameSelect === 'trivia' ? <QuizModal /> : null }
+
+            { actualModal === 1 && gameSelect === 'refranes&dichos' ? <ProversModal /> : null }
         </>
     );
 }
