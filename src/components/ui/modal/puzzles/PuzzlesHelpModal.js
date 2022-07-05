@@ -32,14 +32,9 @@ const PuzzlesHelpModal = ({ help, setHelp, helpRef, numberPuzzle }) => {
                             className='modal__icon'
                         />
                         { help === 0 ? 
-                            <>
-                                <h2>¡Pista del acertijo!</h2>
-                            </>
+                            <h2>Pista</h2>
                         :
-                            <>
-                                <h2>¡Solución al acertijo!</h2>
-                                <h3>La respuesta es: </h3>
-                            </>
+                            <h2>Solución</h2>
                         }
                     </div>
                     

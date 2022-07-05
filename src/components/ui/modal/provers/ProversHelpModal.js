@@ -29,9 +29,9 @@ const ProversHelpModal = ({ showModalRef, numberProver, helpModal, setHelpModal 
                         className='modal__icon'
                     />
                     { helpModal === 0 ? 
-                        <h2>¡Solución!</h2>
+                        <h2>Solución</h2>
                         :
-                        <h2>¡Significado!</h2>
+                        <h2>Significado</h2>
                     }
                     
                 </div>
