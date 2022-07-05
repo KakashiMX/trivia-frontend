@@ -50,7 +50,7 @@ const PuzzlesContent = () => {
             });
         
             // agrega la clase al input de correcto
-            inputRef.current.classList.add('game__input--correct', 'fadein');
+            inputRef.current.classList.add('game__input--correct');
 
         }else{
             // aumenta el  resultado de incorrecto en 1
