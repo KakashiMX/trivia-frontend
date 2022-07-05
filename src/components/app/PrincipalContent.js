@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 
 // context
 import { GamesContext } from '../../context/GamesContext';
+import ProversContent from '../provers/ProversContent';
 
 // componentes
 import PuzzlesContent from '../puzzles/PuzzlesContent';
@@ -18,6 +19,8 @@ const PrincipalContent = () => {
                 { gameSelect === 'acertijos' ? <PuzzlesContent/> : null}
 
                 { gameSelect === 'trivia' ? <QuizContent /> : null}
+
+                { gameSelect === 'refranes&dichos' ? <ProversContent /> : null }
             </div>
         </div>
     );
