@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { getProvers } from '../helper/provers/provers';
 
 // context
 import { GamesContext } from './GamesContext';
@@ -24,6 +25,18 @@ const ProversProvider = ({ children }) => {
     // estado para respuesta dada por el usuario del refran o dicho
     const [responseProver, setResponseProver] = useState("");
 
+    useEffect( () => {
+        const getProversData = async () => {
+            const data = await getProvers( totalProvers );
+            setProvers( data );
+        }
+        if( totalProvers !== null && gameSelect === 'refranes&dichos' && loading ) getProversData();
+
+        setTimeout(() => {
+            setLoading( false );
+        }, 3000);
+        // eslint-disable-next-line
+    }, [ loading ]);
     return (
         <ProversContext.Provider
             value={{
