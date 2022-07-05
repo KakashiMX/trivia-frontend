@@ -12,7 +12,7 @@ const GamesProvider = ({ children }) => {
     const [listGames, setListGames ] = useState(null);
 
     // estado para el formulario 
-    const [gameSelect, setGameSelect] = useState(null);
+    const [gameSelect, setGameSelect] = useState("acertijos");
 
     // estado para buenas e incorrectas en los juegos
     const [result, setResult] = useState({

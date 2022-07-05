@@ -37,7 +37,6 @@ const GameModal = () => {
                             className="form__input"
                             onChange={ e => setGameSelect( e.target.value )}
                         >
-                            <option value=""></option>
                             { listGames ? 
                                 listGames.map( game => 
                                     <option key={ game.nameValue} value={ game.nameValue }>{ game.name }</option>
