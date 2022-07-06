@@ -25,8 +25,7 @@ const GameModal = () => {
                         alt="icono de información" 
                         className='modal__icon'
                     />
-                    <p>Esta es una implementación de mi RESTAPI "Trivia y más"</p>
-                    <p>Puedes encontrar más información aquí</p>
+                    <p>Antes de comenzar</p>
                 </div>
                 
                 
